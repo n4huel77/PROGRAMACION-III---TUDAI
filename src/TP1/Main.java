@@ -1,10 +1,11 @@
 package TP1;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import javax.xml.transform.Source;
+
 public class Main {
     public static void main(String[] args) {
 
+        //LISTA A
         MySimpleLinkedList<Integer> listA = new MySimpleLinkedList<>();
         Node<Integer> na1 = new Node<>(-3, null);
         Node<Integer> na2 = new Node<>(7, null);
@@ -15,11 +16,6 @@ public class Main {
         Node<Integer> na7 = new Node<>(2, null);
         Node<Integer> na8 = new Node<>(4, null);
         Node<Integer> na9 = new Node<>(3, null);
-//        MySimpleLinkedList<Integer> listB = new MySimpleLinkedList<>();
-//        Node<Integer> nb1 = new Node<>(-3, null);
-//        Node<Integer> nb2 = new Node<>(7, null);
-//        Node<Integer> nb3 = new Node<>(5, null);
-//        Node<Integer> nb4 = new Node<>(12, null);
 
         listA.insertFront(na1.getInfo());
         listA.insertFront(na2.getInfo());
@@ -33,12 +29,46 @@ public class Main {
         listA.insertarOrdenado(na8.getInfo());
         listA.insertarOrdenado(na9.getInfo());
 
-        listA.Collec
+        // LISTA B
+        MySimpleLinkedList<Integer> listB = new MySimpleLinkedList<>();
+        Node<Integer> nb1 = new Node<>(3, null);
+        Node<Integer> nb2 = new Node<>(7, null);
+        Node<Integer> nb3 = new Node<>(4, null);
+        Node<Integer> nb4 = new Node<>(10, null);
 
-//        listB.insertFront(nb1.getInfo());
-//        listB.insertFront(nb2.getInfo());
-//        listB.insertFront(nb3.getInfo());
-//        listB.insertFront(nb4.getInfo());
+        listB.insertFront(nb1.getInfo());
+        listB.insertFront(nb2.getInfo());
+        listB.insertFront(nb3.getInfo());
+        listB.insertFront(nb4.getInfo());
+
+        MySimpleLinkedList<Integer> listC = new MySimpleLinkedList<>();
+        System.out.println(listC.getComunesListOrdenados(listA,listB));
+
+        MySimpleLinkedList<Integer> listD = new MySimpleLinkedList<>();
+        MySimpleLinkedList<Integer> listE = new MySimpleLinkedList<>();
+
+        //Creacion de nodos para la segunda busqueda
+        Node<Integer> nOrd1 = new Node<>(3, null);
+        Node<Integer> nOrd2 = new Node<>(4, null);
+        Node<Integer> nOrd3 = new Node<>(7, null);
+        Node<Integer> nOrd4 = new Node<>(8, null);
+        Node<Integer> nOrd5 = new Node<>(3, null);
+        Node<Integer> nOrd6 = new Node<>(7, null);
+        Node<Integer> nOrd7 = new Node<>(9, null);
+        Node<Integer> nOrd8 = new Node<>(10, null);
+
+
+        listD.insertarOrdenado(nOrd1.getInfo());
+        listD.insertarOrdenado(nOrd2.getInfo());
+        listD.insertarOrdenado(nOrd3.getInfo());
+        listD.insertarOrdenado(nOrd4.getInfo());
+        listE.insertarOrdenado(nOrd5.getInfo());
+        listE.insertarOrdenado(nOrd6.getInfo());
+        listE.insertarOrdenado(nOrd7.getInfo());
+        listE.insertarOrdenado(nOrd8.getInfo());
+
+        System.out.println(listC.getComunesListOrdenados(listD,listE));
+
 
     }
 }

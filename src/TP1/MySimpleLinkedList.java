@@ -98,6 +98,53 @@ public class MySimpleLinkedList<T extends Comparable<T>> implements Iterable<T> 
                 return index;
     }
 
+
+    public MySimpleLinkedList<T> getComunesListDesordenada(MySimpleLinkedList<T> list1, MySimpleLinkedList<T> list2) {
+
+        MySimpleLinkedList<T> retorno = new MySimpleLinkedList<>();
+
+        MyIterator<T> it1 = new MyIterator<>(list1.getFirst());
+
+        while(it1.hasNext()) {
+            T info1 = it1.next();
+            MyIterator<T> it2 = new MyIterator<>(list2.getFirst());
+            while ( it2.hasNext()) {
+                T info2 = it2.next();
+                if (info1.equals(info2)) {
+                    retorno.insertarOrdenado(info1);
+                    break;
+                }
+            }
+        }
+        return retorno;
+        }
+
+    public MySimpleLinkedList<T> getComunesListOrdenados(MySimpleLinkedList<T> list1, MySimpleLinkedList<T> list2){
+        MySimpleLinkedList<T> retorno = new MySimpleLinkedList<>();
+
+        MyIterator<T> it1 = new MyIterator<>(list1.getFirst());
+        while (it1.hasNext()){
+            T info1 = it1.next();
+            MyIterator<T> it2 = new MyIterator<>(list2.getFirst());
+            while (it2.hasNext()){
+                T info2 = it2.next();
+                if(info1.equals(info2)){
+                    retorno.insertarOrdenado(info1);
+                    break;
+                }
+                if(info1.compareTo(info2)<0) {//SI ES MAS CHICO CORTO LA BUSQUEDA
+                    break;
+                }
+
+            }
+        }
+        return null;
+    }
+
+    private Node<T> getFirst() {
+        return this.first;
+    }
+
     @Override
     public MyIterator<T> iterator() {
         return new MyIterator<>(this.first);

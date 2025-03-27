@@ -21,4 +21,8 @@ public class MyIterator<T> implements Iterator<T> {
         cursor = cursor.getNext(); // Pasa al siguiente
         return info;
     }
+
+    public T getValor(){
+        return cursor.getInfo();
+    }
 }

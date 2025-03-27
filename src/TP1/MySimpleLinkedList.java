@@ -132,7 +132,7 @@ public class MySimpleLinkedList<T extends Comparable<T>> implements Iterable<T> 
                     retorno.insertarOrdenado(info1);
                     break;
                 }
-                if(info1.compareTo(info2)<0) {//SI ES MAS CHICO CORTO LA BUSQUEDA
+                if(info1.compareTo(info2)<0) {//SI ES MAS CHICO CORTO LA BUSQUEDA (A chequear)
                     break;
                 }
 

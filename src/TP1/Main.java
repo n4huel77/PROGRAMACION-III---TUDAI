@@ -1,6 +1,7 @@
 package TP1;
 
 import javax.xml.transform.Source;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -42,7 +43,6 @@ public class Main {
         listB.insertFront(nb4.getInfo());
 
         MySimpleLinkedList<Integer> listC = new MySimpleLinkedList<>();
-        System.out.println(listC.getComunesListOrdenados(listA,listB));
 
         MySimpleLinkedList<Integer> listD = new MySimpleLinkedList<>();
         MySimpleLinkedList<Integer> listE = new MySimpleLinkedList<>();
@@ -57,18 +57,53 @@ public class Main {
         Node<Integer> nOrd7 = new Node<>(9, null);
         Node<Integer> nOrd8 = new Node<>(10, null);
 
+        //ListD = { 3, 4, 7, 8 }
+        listD.insertFront(nOrd1.getInfo());
+        listD.insertFront(nOrd2.getInfo());
+        listD.insertFront(nOrd3.getInfo());
+        listD.insertFront(nOrd4.getInfo());
+        //ListE = { 3, 7, 9, 10 }
+        listE.insertFront(nOrd5.getInfo());
+        listE.insertFront(nOrd6.getInfo());
+        listE.insertFront(nOrd7.getInfo());
+        listE.insertFront(nOrd8.getInfo());
 
-        listD.insertarOrdenado(nOrd1.getInfo());
-        listD.insertarOrdenado(nOrd2.getInfo());
-        listD.insertarOrdenado(nOrd3.getInfo());
-        listD.insertarOrdenado(nOrd4.getInfo());
-        listE.insertarOrdenado(nOrd5.getInfo());
-        listE.insertarOrdenado(nOrd6.getInfo());
-        listE.insertarOrdenado(nOrd7.getInfo());
-        listE.insertarOrdenado(nOrd8.getInfo());
 
-        System.out.println(listC.getComunesListOrdenados(listD,listE));
+        listC.getComunesListOrdenados(listA,listB);
+        // Resultante = { 3, 7 }
+        MySimpleLinkedList<Integer> listResult = getComunesListOrdenados(listB, listA);
+        for (Integer num : listResult) {
+            System.out.print(num + "\n ");
+        }
+        System.out.println("---------------Ejercicio 6----------------");
+        MySimpleLinkedList<Integer> listResult6 = new MySimpleLinkedList<>();
+        listResult6 = listResult6.getListUnique(listD,listE);
+        for(Integer num : listResult6){
+            System.out.println(num + "\n");
+        }
 
 
     }
+
+
+
+    public static  <T extends Comparable<T>> MySimpleLinkedList<T> getComunesListOrdenados(MySimpleLinkedList<T> list1, MySimpleLinkedList<T> list2){
+
+        MySimpleLinkedList<T> retorno = new MySimpleLinkedList<>();
+        Iterator<T> it1 = list1.iterator();
+        while(it1.hasNext()) {
+            T info1 = it1.next();
+            Iterator<T> it2 = list2.iterator();
+            while ( it2.hasNext()) {
+                T info2 = it2.next();
+                if (info1.equals(info2)) {
+                    retorno.insertarOrdenado(info1);
+                    break;
+                }
+            }
+        }
+        return retorno;
+
+    }
+
 }

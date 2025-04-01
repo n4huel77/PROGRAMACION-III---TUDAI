@@ -69,6 +69,7 @@ public class Main {
         listE.insertFront(nOrd8.getInfo());
 
 
+        System.out.println("---------------Ejercicio 5---------------");
         listC.getComunesListOrdenados(listA,listB);
         // Resultante = { 3, 7 }
         MySimpleLinkedList<Integer> listResult = getComunesListOrdenados(listB, listA);

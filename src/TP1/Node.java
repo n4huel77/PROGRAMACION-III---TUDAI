@@ -3,6 +3,8 @@ package TP1;
 public class Node<T> {
     private T info;
     private Node<T> next;
+    private Node<T> previus;
+
 
     public Node() {
         this.info = null;
@@ -12,6 +14,20 @@ public class Node<T> {
     public Node(T info, Node<T> next) {
         this.setInfo(info);
         this.setNext(next);
+    }
+
+    public Node(T info, Node<T> next, Node<T> previus) {
+        this.info = info;
+        this.next = next;
+        this.previus = previus;
+    }
+
+    public Node<T> getPrevius() {
+        return previus;
+    }
+
+    public void setPrevius(Node<T> previus) {
+        this.previus = previus;
     }
 
     public Node<T> getNext() {

@@ -1,5 +1,7 @@
 package TP1;
 
+import java.util.Iterator;
+
 public class MySimpleLinkedList<T extends Comparable<T>> implements Iterable<T> {
     private Node<T> first;
     private int size;
@@ -139,6 +141,29 @@ public class MySimpleLinkedList<T extends Comparable<T>> implements Iterable<T> 
             }
         }
         return null;
+    }
+
+    public static <T extends Comparable<T>> MySimpleLinkedList<T> getListUnique(MySimpleLinkedList<T> l1, MySimpleLinkedList<T> l2){
+        MySimpleLinkedList<T> result = new MySimpleLinkedList<>();
+        Iterator<T> it = l1.iterator();
+        boolean encontrado;
+
+        while (it.hasNext()){
+            Iterator<T> it2 = l2.iterator();
+            T aux1 = it.next();
+            encontrado = false;
+            while (it2.hasNext()) {
+                T aux2 = it2.next();
+                if (aux1.equals(aux2)) {
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado){
+                result.insertFront(aux1);
+            }
+        }
+        return result;
     }
 
     private Node<T> getFirst() {

@@ -1,4 +1,4 @@
-package TP2;
+package TP2_Ordenamiento_Recursividad;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package TP1;
+package TP1_Listas;
 
 import java.util.Iterator;
 public class MyIterator<T> implements Iterator<T> {

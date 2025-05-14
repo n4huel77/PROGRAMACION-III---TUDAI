@@ -1,8 +1,8 @@
 package TP3_Arboles;
 
-public class TreeNode {
+public class TreeNode<T> {
 
-    private Integer value;
+    private int value;
     private TreeNode left;
     private TreeNode right;
 
@@ -10,6 +10,10 @@ public class TreeNode {
         this.value = value;
         this.left = null;
         this.right = null;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public TreeNode getLeft() {

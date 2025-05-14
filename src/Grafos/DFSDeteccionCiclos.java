@@ -18,7 +18,7 @@ public class DFSDeteccionCiclos<T> {
         while(it.hasNext()){
             colores.put(it.next(), Color.BLANCO);
         }
-        //Por cada vertice, pregunto su color
+        //Por cada vertice, pregunto su color   ---> cambiar a while y agregar !hayCiclo
         for (int vertice : colores.keySet()){
             if(colores.get(vertice)== Color.BLANCO){
                 dfsVisit(grafo,vertice); //Se visita siempre que sea blanco
@@ -33,7 +33,7 @@ public class DFSDeteccionCiclos<T> {
         colores.put(u,Color.AMARILLO);
 
         Iterator<Integer> itAdy = grafo.obtenerAdyacentes(u); //Me traigo los adyacentes
-        while (itAdy.hasNext()){
+        while (itAdy.hasNext() && !hayCiclo){
             int verticeAdy = itAdy.next();
 
             if (colores.get(verticeAdy) == Color.BLANCO){ // Por cada adyacente pregunto si no fue visitado

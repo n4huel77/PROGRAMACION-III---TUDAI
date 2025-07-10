@@ -6,7 +6,8 @@ import java.util.Iterator;
 
 public class GrafoDirigido<T> implements Grafo<T> {
     private HashMap<Integer, HashMap<Integer,Arco<T>>> vertices = new HashMap<>();
-
+    protected enum estado {VISITADO, NO_VISITADO};
+    protected int mayorPeso = -1;
     public void agregarVertice(int verticeId) {
         if(!vertices.containsKey(verticeId))
             vertices.put(verticeId,new HashMap<>());

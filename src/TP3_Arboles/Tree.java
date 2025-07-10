@@ -1,8 +1,10 @@
 package TP3_Arboles;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Tree {
+public class Tree<T> {
 
     private TreeNode root;
 
@@ -72,6 +74,8 @@ public class Tree {
 //        ArrayList<TreeNode>
 //    }
 
+
+
     public void imprimirPos(){
         imprimirPosOrden(this.root);
     }
@@ -86,5 +90,35 @@ public class Tree {
         imprimirPosOrden(nodo.getLeft());
         imprimirPosOrden(nodo.getRight());
         System.out.print(nodo.getValue() + " ");
+    }
+
+/*
+    Ejercicio 2
+    Escriba en JAVA el código del método de la clase Tree (que representa arboles binarios)
+    que tiene la siguiente declaración:
+          private Lista<T> obtenerNivel (TreeNode<T> n, int k)
+    El método al ser invocado con el nodo raiz del árbol binario, debe retornar una lista
+    con los elementos del nivel k de dicho árbol en orden do derecha a izquierda.
+    Si k es mayor a la altura del árbol deberá retornar una lista vacia.
+    Suponga que la clase Lista (simplemente vinculada) y TreeNode (nodo de árbol binario) tienen los métodos usualos
+    Por ejemplo para el árbol de la derecha, y k=2, debe retornar la lista <O,S,N,L>
+*/
+
+
+
+    private List<T> obtenerNivel (TreeNode<T> node, int k){
+        List<T> solucion = new LinkedList<>();
+        obtenerNivelRec(node,k,solucion);
+        return solucion;
+    }
+
+    private void obtenerNivelRec(TreeNode<T> node, int k, List<T> solucion) {
+        if (node == null)
+            return;
+        if(k==0)
+            solucion.add((T) node.getValue());
+
+        obtenerNivelRec(node.getRight(),k-1,solucion);
+        obtenerNivelRec(node.getLeft(),k-1,solucion);
     }
 }
